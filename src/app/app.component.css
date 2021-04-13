@@ -35,4 +35,6 @@
     font-size: 1em;
     display: inline-block;
     cursor: pointer;
+    padding-left: 1em;
+    padding-right: 1em;
 }
