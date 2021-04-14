@@ -1,19 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
+import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 
-
+//For chips
 export interface Article {
   name: string;
 }
-
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
+
 export class ProfileComponent implements OnInit {
+  @Input() show: boolean;                         //Control when the user detail shown
+
+  firestore: FirebaseTSFirestore;
+  auth: FirebaseTSAuth;
+
   //DOB setting 
   minDate: Date;
   maxDate: Date;
@@ -21,7 +29,11 @@ export class ProfileComponent implements OnInit {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 120, 0, 1);
     this.maxDate = new Date(currentYear - 2, 11, 31);
+
+    this.firestore = new FirebaseTSFirestore;
+    this.auth = new FirebaseTSAuth;
   }
+
 
   //Chips 
   visible = true;
@@ -54,6 +66,34 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+
+
+  //button click event to db
+  onContinueClick(
+    firstName: HTMLInputElement,
+    lastName: HTMLInputElement
+  ) {
+
+    let Fname = firstName.value;
+    let Lname = lastName.value;
+    this.firestore.create(
+      {
+        path: ["User", this.auth.getAuth().currentUser.uid],
+        data: {
+          firstName: Fname,
+          lastName: Lname
+        },
+        onComplete: (docId) => {
+          alert("profile is created")
+          firstName.value = "";
+          lastName.value = "";
+        },
+        onFail: (err) => {
+
+        }
+      }
+    );
+  }
   ngOnInit(): void {
   }
 

@@ -33,8 +33,17 @@
   z-index: 9;
   transition-duration: .5s;
   overflow: hidden;
-}
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.active{
+  width: 100vw;
+}
+.idle{
+  width: 0;
+}
 #profile-content {
   width: 100%;
   max-width: 500px;

@@ -5,10 +5,13 @@
         </div>
         <div id="nav-bar-right">
             <div  *ngIf="!loggedIn()" (click)="onLoginClick()" style="font-size: 1.4em" id="nav-bar-items">Login</div>
+            <div  *ngIf="loggedIn()" (click)="onLoginClick()" style="font-size: 1.4em" id="nav-bar-items">
+                Hi there,  {{userDocument.firstName}}
+            </div>
             <div  *ngIf="loggedIn()" (click)="onLogoutClick()" style="font-size: 1.4em" id="nav-bar-items">Logout</div>
         </div>
     </div>
 </div>
 <router-outlet></router-outlet>
 
-<app-profile></app-profile>
+<app-profile [show]="loggedIn() && !userHasProfile"></app-profile>

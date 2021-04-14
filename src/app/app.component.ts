@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { AuthenticatorComponent } from 'src/app/tools/authenticator/authenticator.component';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
+import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,14 +11,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Social-Media';
 
+  title = 'Social-Media';
   auth = new FirebaseTSAuth();
+  firestore = new FirebaseTSFirestore();
+  userHasProfile = true;
+  userDocument: UserDocument;
 
   constructor(private loginSheet: MatBottomSheet,
-              private router: Router
-    ) 
-  {
+    private router: Router
+  ) {
     this.auth.listenToSignInStateChanges(
       user => {
         this.auth.checkSignInState(
@@ -26,12 +29,13 @@ export class AppComponent {
 
             },
             whenSignedOut: user => {
-              
+
             },
             whenSignedInAndEmailNotVerified: user => {
               this.router.navigate(["emailVerificarion"]);
             },
             whenSignedInAndEmailVerified: user => {
+              this.getUserProfile();
 
             },
             whenChanged: user => {
@@ -43,7 +47,19 @@ export class AppComponent {
     );
   }
 
-  loggedIn(){
+  getUserProfile() {
+    this.firestore.listenToDocument(
+      {
+        name: "Getting Document",
+        path: ["User", this.auth.getAuth().currentUser.uid],
+        onUpdate: (result) => {
+          this.userDocument = <UserDocument>result.data();          
+          this.userHasProfile = result.exists;
+        }
+      }
+    );
+  }
+  loggedIn() {
     return this.auth.isSignedIn();
   }
   onLoginClick() {
@@ -52,5 +68,12 @@ export class AppComponent {
   onLogoutClick() {
     this.auth.signOut();
   }
+
+}
+
+
+export interface UserDocument{
+  firstname: string;
+  lastname: string;
 
 }
