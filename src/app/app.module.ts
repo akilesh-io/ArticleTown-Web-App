@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment';
 //Importing pages/home,authenticator,....
 import { HomeComponent } from './pages/home/home.component';
 import { AuthenticatorComponent } from './tools/authenticator/authenticator.component';
+import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
 
 
 
@@ -26,7 +27,8 @@ import { AuthenticatorComponent } from './tools/authenticator/authenticator.comp
   declarations: [
     AppComponent,
     HomeComponent,
-    AuthenticatorComponent
+    AuthenticatorComponent,
+    EmailVerificationComponent
   ],
   imports: [
     BrowserModule,
