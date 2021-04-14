@@ -1,0 +1,43 @@
+.detail-form {
+  padding-top: 3em;
+  min-width: 150px;
+  max-width: 300px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.date-picker{
+  width: 100%;
+}
+
+.chip-list {
+  width: 100%;
+}
+.phone-number{
+  min-width: 150px;
+  max-width: 500px;
+}
+.phone-number-width{
+  width: 100%;
+}
+
+#profile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background-color: rgb(141, 218, 42);
+  z-index: 9;
+  transition-duration: .5s;
+  overflow: hidden;
+}
+
+#profile-content {
+  width: 100%;
+  max-width: 500px;
+  padding: 2em;
+  box-sizing: border-box;
+}

@@ -1,0 +1,58 @@
+<div id="profile">
+  <div id="profile-content">
+    <form class="detail-form">
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="first name">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="last name">
+      </mat-form-field>
+
+      <!-- Phone Number -->
+      <form class="phone-number">
+        <mat-form-field class="phone-number-width">
+          <mat-label>Phone Number</mat-label>
+          <span matPrefix>+91 &nbsp;</span>
+          <input type="tel" matInput placeholder="555-555-1234">
+          <mat-icon matSuffix>call</mat-icon>
+        </mat-form-field>
+      </form>
+      
+
+
+
+
+      <!-- DOB -->
+      <mat-form-field class="date-picker">
+        <mat-label>Date Of Birth</mat-label>
+        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+
+
+      <!-- Chips -->
+      <mat-form-field class="chip-list">
+        <mat-label>article preferences</mat-label>
+        <mat-chip-list #chipList aria-label="article selection">
+          <mat-chip *ngFor="let article of articles" [selectable]="selectable" [removable]="removable"
+            (removed)="remove(article)">
+            {{article.name}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="Add your preference" [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field>
+
+
+
+    </form>
+
+    <button mat-flat-button color="warn">Get started</button>
+  </div>
+</div>
