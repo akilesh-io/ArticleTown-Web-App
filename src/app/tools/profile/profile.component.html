@@ -2,12 +2,16 @@
   <div id="profile-content">
     <form class="detail-form">
 
+
+
+      <!-- First name -->
       <mat-form-field class="full-width">
-        <input matInput placeholder="first name">
+        <input matInput placeholder="First name">
       </mat-form-field>
 
+      <!-- Last name -->
       <mat-form-field class="full-width">
-        <input matInput placeholder="last name">
+        <input matInput placeholder="Last name">
       </mat-form-field>
 
       <!-- Phone Number -->
@@ -19,10 +23,6 @@
           <mat-icon matSuffix>call</mat-icon>
         </mat-form-field>
       </form>
-      
-
-
-
 
       <!-- DOB -->
       <mat-form-field class="date-picker">
@@ -31,8 +31,6 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-
-
 
       <!-- Chips -->
       <mat-form-field class="chip-list">
@@ -52,7 +50,7 @@
 
 
     </form>
-
+    
     <button mat-flat-button color="warn">Get started</button>
   </div>
 </div>
