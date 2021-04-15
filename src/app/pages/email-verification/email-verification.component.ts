@@ -25,6 +25,9 @@ export class EmailVerificationComponent implements OnInit {
   }
   onResendClick(){
      this.auth.sendVerificationEmail();
+     setTimeout(function(){     
+       alert("Verification code has been sent"); 
+      }, 1000);
   }
 
 }
