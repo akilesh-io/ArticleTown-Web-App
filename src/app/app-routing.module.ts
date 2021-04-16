@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
 import { HomeComponent } from './pages/home/home.component';
+import { PostFeedComponent } from './pages/post-feed/post-feed.component';
 
 const routes: Routes = [
   {path:"",component: HomeComponent},
   {path:"emailVerificarion",component: EmailVerificationComponent},
+  {path:"postfeed",component: PostFeedComponent},
   {path:"**",component: HomeComponent}
 
 ];

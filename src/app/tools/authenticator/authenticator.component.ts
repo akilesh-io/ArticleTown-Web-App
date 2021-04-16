@@ -75,12 +75,12 @@ export class AuthenticatorComponent implements OnInit {
   }
 
   //-----Reset Password-----
-  onResetPassword(resetPassword:HTMLInputElement){
+  onResetPassword(resetPassword: HTMLInputElement) {
     let email = resetPassword.value;
-    if(this.isNotEmpty(email)){
+    if (this.isNotEmpty(email)) {
       this.auth.sendPasswordResetEmail(
         {
-          email:email,
+          email: email,
           onComplete: (uc) => {
             this.bottomSheetRef.dismiss();
           }

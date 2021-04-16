@@ -55,6 +55,10 @@ export class AppComponent {
         onUpdate: (result) => {
           this.userDocument = <UserDocument>result.data();          
           this.userHasProfile = result.exists;
+
+          if(this.userDocument){
+            this.router.navigate(["postfeed"]);
+          }
         }
       }
     );
@@ -68,6 +72,7 @@ export class AppComponent {
   onLogoutClick() {
     this.auth.signOut();
   }
+
 
 }
 

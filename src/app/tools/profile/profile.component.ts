@@ -19,8 +19,10 @@ export interface Article {
 export class ProfileComponent implements OnInit {
   @Input() show: boolean;                         //Control when the user detail shown
 
+  user = false;
   firestore: FirebaseTSFirestore;
   auth: FirebaseTSAuth;
+
 
   //DOB setting 
   minDate: Date;
@@ -84,17 +86,28 @@ export class ProfileComponent implements OnInit {
           lastName: Lname
         },
         onComplete: (docId) => {
-          alert("profile is created")
+          alert("profile is created"),
           firstName.value = "";
           lastName.value = "";
+          userdb();
         },
         onFail: (err) => {
 
         }
       }
     );
+    function userdb(){
+      return this.user = true;
+    }
   }
+
+
+
+
   ngOnInit(): void {
+
+
+
   }
 
 }
