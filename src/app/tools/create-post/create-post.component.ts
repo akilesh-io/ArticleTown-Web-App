@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { FirebaseTSStorage } from 'firebasets/firebasetsStorage/firebaseTSStorage';
+import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-post',
@@ -16,15 +18,13 @@ export class CreatePostComponent implements OnInit {
   firestorage = new FirebaseTSFirestore;
   storage = new FirebaseTSStorage;
 
-  constructor() { }
+  constructor(private dialog:MatDialogRef<CreatePostComponent>) { }
   ngOnInit(): void {
   }
 
 
-  onPostClick(
-    commontInput: HTMLTextAreaElement
-  ) {
-    let commment = commontInput;
+  onPostClick(commentInput: HTMLTextAreaElement) {
+    let commment = commentInput.value;
     let postId = this.firestorage.genDocId();
     this.storage.upload(
       {
@@ -33,8 +33,25 @@ export class CreatePostComponent implements OnInit {
         data: {
           data: this.selectedImageFile
         },
-        onComplete:(downloadUrl)=>{
-          
+        onComplete: (downloadUrl) => {
+
+
+          this.firestorage.create(
+            {
+              path: ['Posts', postId],
+              data: {
+                commment: commment,
+                creatorId: this.auth.getAuth().currentUser.uid,
+                imageUrl: downloadUrl,
+                timestamp: FirebaseTSApp.getFirestoreTimestamp()
+              },
+              onComplete:(docId) => {
+                this.dialog.close();
+              }
+            }
+
+          );
+
         }
       }
     );

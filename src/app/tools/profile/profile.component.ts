@@ -49,7 +49,7 @@ export class ProfileComponent implements OnInit {
     const input = event.input;
     const value = event.value;
 
-    // Add our article
+    // Add our article preference
     if ((value || '').trim()) {
       this.articles.push({ name: value.trim() });
     }
@@ -92,11 +92,12 @@ export class ProfileComponent implements OnInit {
           userdb();
         },
         onFail: (err) => {
+          alert('Not uploaded')
 
         }
       }
     );
-    function userdb(){
+    function userdb() {
       return this.user = true;
     }
   }
