@@ -15,12 +15,18 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
 
 //Importing FirebaseTS
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp'
 
 //Importing Firebase config files 
 import { environment } from 'src/environments/environment';
+
+//Importing data service files
+import { UserArticlesService} from './datas/user-articles/user-articles.service';
+import { UserDatasService} from './datas/user-details/user-datas.service';
 
 //Importing pages/home,authenticator,....
 import { HomeComponent } from './pages/home/home.component';
@@ -29,6 +35,7 @@ import { EmailVerificationComponent } from './pages/email-verification/email-ver
 import { ProfileComponent } from './tools/profile/profile.component';
 import { PostFeedComponent } from './pages/post-feed/post-feed.component';
 import { CreatePostComponent } from './tools/create-post/create-post.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 
 
@@ -40,7 +47,8 @@ import { CreatePostComponent } from './tools/create-post/create-post.component';
     EmailVerificationComponent,
     ProfileComponent,
     PostFeedComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,16 +62,21 @@ import { CreatePostComponent } from './tools/create-post/create-post.component';
     MatNativeDateModule,
     MatChipsModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule,
+    MatCheckboxModule
+  ],
+  providers:[
+    UserArticlesService,
+    UserDatasService
   ],
   exports: [
 
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor() {
+  constructor() { 
     FirebaseTSApp.init(environment.firebaseConfig);
   }
 }

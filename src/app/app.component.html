@@ -1,18 +1,22 @@
 <div id="nav-bar">
-    <div id="nav-bar-content">
-        <div id="nav-bar-left">
-            <div style="font-size: 1.5em;" id="nav-bar-items">Konoha</div>
-        </div>
-        <div id="nav-bar-right">
-            <div *ngIf="!loggedIn()" (click)="onLoginClick()" style="font-size: 1.4em" id="nav-bar-items">Login</div>
+  <div id="nav-bar-content">
+    <div id="nav-bar-left">
+      <div style="font-size: 1.5em;" id="nav-bar-items">Konoha</div>
+    </div>
+    <div id="nav-bar-right">
+      <div *ngIf="!loggedIn()" (click)="onLoginClick()" id="nav-bar-items">
+        <button mat-raised-button style="font-size: 1.4em">Login</button>
+      </div>
 
-            <!-- Remove this line -->
-            <!-- <div   *ngIf="loggedIn()" (click)="onLoginClick()" style="font-size: 1.4em" id="nav-bar-items">
+      <!-- Remove this line -->
+      <!-- <div   *ngIf="loggedIn()" (click)="onLoginClick()" style="font-size: 1.4em" id="nav-bar-items">
                 Hi there,  {{userDocument.firstName}}
             </div> -->
-            <div  ng-click="userDocument == null"  *ngIf="loggedIn()" (click)="onLogoutClick()" style="font-size: 1.4em" id="nav-bar-items">Logout</div>
-        </div>
+      <div ng-click="userDocument == null" *ngIf="loggedIn()" (click)="onLogoutClick()"  id="nav-bar-items">
+        <button mat-raised-button style="font-size: 1.4em">Logout</button>
+      </div>
     </div>
+  </div>
 </div>
 <router-outlet></router-outlet>
 

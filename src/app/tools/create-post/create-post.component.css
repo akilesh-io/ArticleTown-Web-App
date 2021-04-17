@@ -25,3 +25,11 @@ textarea {
   border: none;
   outline: none;
 }
+
+.full-width {
+  width: 100%;
+}
+
+.chip-list {
+  width: 100%;
+}

@@ -1,29 +1,59 @@
 <mat-card>
-    <mat-card-header>
-        <mat-card-title>
-            Create Article
-        </mat-card-title>
-    </mat-card-header>
+  <mat-card-header>
+    <mat-card-title>
+      New Article
+    </mat-card-title>
+  </mat-card-header>
 
-    <!-- text area -->
-    <div>
-        <textarea #commentInput placeholder="Enter your article here"></textarea>
-    </div>
+  <!-- Article Name -->
+  <mat-form-field class="full-width">
+    <input matInput #articleName placeholder="Title">
+  </mat-form-field>
 
-    <!-- Post preview -->
-    <div *ngIf="selectedImageFile" id="post-preview">
-        <img id="post-preview-image"/>
-    </div>
-    <mat-card-actions align="end">
-        <button mat-button color="warn">
-            <label for="photo-upload">
-                <input #photoSelector (change)="onPhotoSelected(photoSelector)" 
-                #photoSelector (change)="onPhotoSelected(photoSelector)" 
-                id="photo-upload" type="file" accept="image/*"/>
-                <mat-icon>insert_photo</mat-icon>
-            </label>
-        </button>
-        <button (click)="onPostClick(commentInput)" mat-button color="warn">Post</button>
-    </mat-card-actions>
+  <!-- Article Discription -->
+  <mat-form-field class="full-width">
+    <input matInput #articleDiscription placeholder="Discription">
+  </mat-form-field>
+
+  <!-- Tag -->
+      <!-- Chips -->
+      <mat-form-field class="chip-list">
+        <mat-label>article preferences</mat-label>
+        <mat-chip-list #chipList aria-label="article selection">
+          <mat-chip *ngFor="let article of articles" [selectable]="selectable" [removable]="removable"
+            (removed)="remove(article)">
+            {{article.name}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="Add your preference" [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field>
+
+ 
+  <!-- text area -->
+  <div>
+    <textarea #commentInput placeholder="Enter your article here"></textarea>
+  </div>
+
+  <!-- Post preview -->
+  <div *ngIf="selectedImageFile" id="post-preview">
+    <img id="post-preview-image" />
+  </div>
+  <mat-card-actions align="end">
+    <button mat-button color="warn">
+      <label for="photo-upload">
+        <input #photoSelector (change)="onPhotoSelected(photoSelector)" #photoSelector
+          (change)="onPhotoSelected(photoSelector)" id="photo-upload" type="file" accept="image/*" />
+        <mat-icon>insert_photo</mat-icon>
+      </label>
+    </button>
+    <button (click)="onPostClick(
+        articleName,
+        articleDiscription,
+        commentInput
+        )" mat-button color="warn">Post</button>
+  </mat-card-actions>
 
 </mat-card>
