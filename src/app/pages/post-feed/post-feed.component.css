@@ -1,4 +1,13 @@
+#home-page {
+  width: 100%;
+  height: 100%;
+}
+
 #home-page-landing {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   background-image: url("src/assets/background-Image.jpg");
@@ -10,13 +19,18 @@
   min-height: 800px;
 }
 
-#home-page {
-  width: 100%;
-  height: 100%;
-}
-
 #post-button {
   position: fixed;
   bottom: 2em;
   right: 2em;
+}
+
+.example-card {
+  width: 70%;
+  height: 30%;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
 }
