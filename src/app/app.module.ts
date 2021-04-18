@@ -15,8 +15,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 //Importing FirebaseTS
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp'
@@ -25,8 +25,8 @@ import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp'
 import { environment } from 'src/environments/environment';
 
 //Importing data service files
-import { UserArticlesService} from './datas/user-articles/user-articles.service';
-import { UserDatasService} from './datas/user-details/user-datas.service';
+import { UserArticlesService } from './datas/user-articles/user-articles.service';
+import { UserDatasService } from './datas/user-details/user-datas.service';
 
 //Importing pages/home,authenticator,....
 import { HomeComponent } from './pages/home/home.component';
@@ -66,7 +66,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
     MatExpansionModule,
     MatCheckboxModule
   ],
-  providers:[
+  providers: [
     UserArticlesService,
     UserDatasService
   ],
@@ -76,7 +76,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor() { 
+  constructor() {
     FirebaseTSApp.init(environment.firebaseConfig);
   }
 }

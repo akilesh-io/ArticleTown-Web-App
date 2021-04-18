@@ -1,11 +1,14 @@
 <div id="home-page">
   <div id="home-page-landing">
     <!-- Posts -->
-    <mat-card class="example-card">Hello world 1</mat-card>
-    <mat-card class="example-card">Hello world 2</mat-card>
-    <mat-card class="example-card">Hello world 3</mat-card>
-    <mat-card class="example-card">Hello world 4</mat-card>
     
+    <mat-card class="example-card">
+      <h1 style="font-size:x-large;">{{userArticles.articleData?.title}}</h1>
+      <p style="font-size:medium;">{{userArticles.articleData?.discription}}</p>
+      <p>{{userArticles.articleData?.article}}</p>
+    </mat-card>
+
+   
     <!-- Bottom right article upload button -->
     <button (click)="onCreatePostClick()" mat-fab color="warn" id="post-button">
       <mat-icon>add</mat-icon>

@@ -20,8 +20,8 @@ textarea {
   font-size: 1.5em;
   padding: 1em;
   resize: none;
-  width: 250px;
-  min-height: 200px;
+  width: 90%;
+  max-height: 150px;
   border: none;
   outline: none;
 }
