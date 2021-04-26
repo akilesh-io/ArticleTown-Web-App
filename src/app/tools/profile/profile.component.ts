@@ -101,14 +101,7 @@ export class ProfileComponent implements OnInit {
       return this.user = true;
     }
   }
-
-
-
-
   ngOnInit(): void {
-
-
-
   }
 
 }

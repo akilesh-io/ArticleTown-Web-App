@@ -40,5 +40,4 @@ export interface UserArticleData {
   title: string,
   discriptin: string,
   article: string
-
 }

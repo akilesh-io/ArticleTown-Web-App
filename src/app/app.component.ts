@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
-  title = 'Social-Media';
+  title = 'Article-Town';
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   userHasProfile = true;

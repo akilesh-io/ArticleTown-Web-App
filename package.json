@@ -1,5 +1,5 @@
 {
-  "name": "social-media",
+  "name": "article-yown",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -51,7 +51,7 @@
   "main": "karma.conf.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/2112akilesh/Social-Media.git"
+    "url": "git+https://github.com/2112akilesh/Article-Town.git"
   },
   "keywords": [
     "angular",
@@ -64,7 +64,7 @@
   "author": "Akilesh",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/2112akilesh/Social-Media/issues"
+    "url": "https://github.com/2112akilesh/Article-Town/issues"
   },
-  "homepage": "https://github.com/2112akilesh/Social-Media#readme"
+  "homepage": "https://github.com/2112akilesh/Article-Town#readme"
 }

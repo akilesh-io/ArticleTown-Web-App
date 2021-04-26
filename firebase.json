@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/Social-Media",
+    "public": "dist/Article-Town",
     "ignore": [
       "firebase.json",
       "**/.*",
