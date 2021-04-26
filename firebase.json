@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/Social-Media",
+    "public": "dist/Article-Town",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -12,9 +12,5 @@
         "destination": "/index.html"
       }
     ]
-  },
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
   }
 }
