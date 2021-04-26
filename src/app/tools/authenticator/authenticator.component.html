@@ -9,23 +9,36 @@
         <!-- Login -->
     
         <div *ngIf="isLoginState()">
-            <input placeholder="Email"/>
-            <input placeholder="password" type="password"/>
-            <button mat-flat-button color="warn">Login</button>
+            <input #loginEmail placeholder="Email"/>
+            <input #loginPassword placeholder="password" type="password"/>
+            <button 
+            (click) = "onLogin(
+                loginEmail,
+                loginPassword
+            )"
+            mat-flat-button color="warn">Login</button>
         </div>
 
         <!-- Create Account -->
         <div *ngIf="isRegisterState()">
-            <input placeholder="Email"/>
-            <input placeholder="password" type="password"/>
-            <input placeholder="Confirm password" type="password"/>
-            <button mat-flat-button color="warn">Create</button>
+            <input #registerEmail placeholder="Email"/>
+            <input #registerPassword placeholder="password" type="password"/>
+            <input #registerConfirmPassword placeholder="Confirm password" type="password"/>
+            <button 
+                (click) = "onRegisterClick(
+                    registerEmail,
+                    registerPassword,
+                    registerConfirmPassword
+                )"
+            mat-flat-button color="warn">Create</button>
         </div>
         
         <!-- Forgot password -->
         <div *ngIf="isForgotPassword()">
-            <input placeholder="Email"/>
-            <button mat-flat-button color="warn">Reset</button>
+            <input #resetPassword placeholder="Email"/>
+            <button 
+                (click) = "onResetPassword(resetPassword)"
+            mat-flat-button color="warn">Reset</button>
         </div>
 
 

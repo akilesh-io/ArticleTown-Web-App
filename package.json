@@ -46,5 +46,25 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2112akilesh/Social-Media.git"
+  },
+  "keywords": [
+    "angular",
+    "firebase",
+    "social",
+    "media",
+    "web",
+    "application"
+  ],
+  "author": "Akilesh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/2112akilesh/Social-Media/issues"
+  },
+  "homepage": "https://github.com/2112akilesh/Social-Media#readme"
 }
