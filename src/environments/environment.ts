@@ -4,16 +4,16 @@
 
 export const environment = {
   production: false,
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    firebaseConfig: {
-      apiKey: "AIzaSyCRJq6Sn56wfN_TgvO3N1ZqzYpQa3ZRyLM",
-      authDomain: "article-town.firebaseapp.com",
-      projectId: "article-town",
-      storageBucket: "article-town.appspot.com",
-      messagingSenderId: "951867549982",
-      appId: "1:951867549982:web:c44c8c26227217bc60410f",
-      measurementId: "G-TM9TMZ6PKD"  
-    }
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  firebaseConfig: {
+    apiKey: "AIzaSyAGF7DPUnyP33rKD82exrvurz4l03yqbaQ",
+    authDomain: "article-town-a3add.firebaseapp.com",
+    projectId: "article-town-a3add",
+    storageBucket: "article-town-a3add.appspot.com",
+    messagingSenderId: "73881069547",
+    appId: "1:73881069547:web:62a89ac9d1dc4c03d05bae",
+    measurementId: "G-7YVRDWNVGZ"
+  }
 };
 
 /*

@@ -7,17 +7,18 @@
       <div *ngIf="!loggedIn()" (click)="onLoginClick()" id="nav-bar-items">
         <button mat-raised-button style="font-size: 1.4em">Login</button>
       </div>
-
       <!-- Remove this line -->
       <!-- <div   *ngIf="loggedIn()" (click)="onLoginClick()" style="font-size: 1.4em" id="nav-bar-items">
                 Hi there,  {{userDocument.firstName}}
             </div> -->
-      <div ng-click="userDocument == null" *ngIf="loggedIn()" (click)="onLogoutClick()"  id="nav-bar-items">
+
+      <div ng-click="userDocument == null" *ngIf="loggedIn()" (click)="onLogoutClick()" id="nav-bar-items">
         <button mat-raised-button style="font-size: 1.4em">Logout</button>
       </div>
     </div>
   </div>
 </div>
+
 <router-outlet></router-outlet>
 
 <app-profile [show]="loggedIn() && !userHasProfile"></app-profile>

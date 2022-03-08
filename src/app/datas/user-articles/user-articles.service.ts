@@ -20,7 +20,7 @@ export class UserArticlesService {
     this.firestore.getDocument(
       {
         path: [
-          "Posts", "PPROp2A3NYmrQFr6pnGH"
+          "Posts", "FZ6qMjf3jfXUeioAwgd7"
         ],
         onComplete: (result) => {
           this.articleData = <UserArticleData>result.data();
