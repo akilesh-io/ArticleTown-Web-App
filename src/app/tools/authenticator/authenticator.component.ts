@@ -98,7 +98,7 @@ export class AuthenticatorComponent implements OnInit {
     return text == ComparedWith;
   }
 
-  //Navigate between login reset create using ng-if directive
+  //Navigate between login, reset, create using ng-if directive
   state = AuthenticatorCompState.LOGIN;
 
   onLoginClick() {

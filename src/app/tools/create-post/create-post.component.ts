@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { FirebaseTSStorage } from 'firebasets/firebasetsStorage/firebaseTSStorage';
@@ -6,7 +6,7 @@ import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 import { MatDialogRef } from '@angular/material/dialog';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { UserArticlesService} from 'src/app/datas/user-articles/user-articles.service';
+import { UserArticlesService } from 'src/app/datas/user-articles/user-articles.service';
 
 
 export interface Tag {
@@ -23,6 +23,8 @@ export class CreatePostComponent implements OnInit {
 
 
   selectedImageFile: File;
+  alertUpload = false;                             //For alert if article upload success or not
+  
 
   auth = new FirebaseTSAuth;
   firestorage = new FirebaseTSFirestore;
@@ -114,6 +116,11 @@ export class CreatePostComponent implements OnInit {
               },
               onComplete: (docId) => {
                 this.dialog.close();
+                this.alertUpload = true;
+              },
+              onFail: (err) => {
+                console.log(err.message);
+                this.alertUpload = false;                
               }
             }
           );
@@ -140,6 +147,11 @@ export class CreatePostComponent implements OnInit {
         },
         onComplete: (docId) => {
           this.dialog.close();
+          this.alertUpload = true;
+        },
+        onFail: (err) => {
+          console.log(err.message);
+          this.alertUpload = false;
         }
       }
     );
@@ -160,6 +172,6 @@ export class CreatePostComponent implements OnInit {
         postPreviewImage.src = readableString;
       }
     );
-
   }
+
 }

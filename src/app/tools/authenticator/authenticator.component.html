@@ -1,10 +1,10 @@
 <div id="authenticator">
-    <math-card id="authenticator-content">
-        <math-card-header>
+    <mat-card id="authenticator-content">
+        <mat-card-header>
             <mat-card-title *ngIf="isLoginState()">Login</mat-card-title>
             <mat-card-title *ngIf="isRegisterState()">Create account</mat-card-title>
             <mat-card-title *ngIf="isForgotPassword()">Forgot password</mat-card-title>
-        </math-card-header>
+        </mat-card-header>
 
         <!-- Login -->
     
@@ -54,5 +54,5 @@
             style="margin: .5em" mat-flat-button>Forgot password</button>
 
         </mat-card-actions>
-    </math-card>
+    </mat-card>
 </div>
