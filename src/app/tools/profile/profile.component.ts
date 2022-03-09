@@ -80,7 +80,7 @@ export class ProfileComponent implements OnInit {
     let Lname = lastName.value;
     this.firestore.create(
       {
-        path: ["User", this.auth.getAuth().currentUser.uid],
+        path: ["Users", this.auth.getAuth().currentUser.uid],
         data: {
           firstName: Fname,
           lastName: Lname

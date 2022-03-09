@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+//Bootstrap UI import
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { AlertModule } from 'ngx-bootstrap/alert';
+
 //Material UI imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatButtonModule } from '@angular/material/button';
@@ -36,6 +40,8 @@ import { ProfileComponent } from './tools/profile/profile.component';
 import { PostFeedComponent } from './pages/post-feed/post-feed.component';
 import { CreatePostComponent } from './tools/create-post/create-post.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { PostComponent } from './tools/post/post.component';
+import { ReplyComponent } from './tools/reply/reply.component';
 
 
 
@@ -48,13 +54,15 @@ import { SettingsComponent } from './pages/settings/settings.component';
     ProfileComponent,
     PostFeedComponent,
     CreatePostComponent,
-    SettingsComponent
+    SettingsComponent,
+    PostComponent,
+    ReplyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
+    MatButtonModule,                               //Material UI Components
     MatCardModule,
     MatBottomSheetModule,
     MatInputModule,
@@ -64,14 +72,15 @@ import { SettingsComponent } from './pages/settings/settings.component';
     MatIconModule,
     MatDialogModule,
     MatExpansionModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ButtonsModule.forRoot(),                                     //Bootstrap Components
+    AlertModule.forRoot()
   ],
   providers: [
     UserArticlesService,
-    UserDatasService
+    UserDatasService,
   ],
   exports: [
-
   ],
   bootstrap: [AppComponent]
 })
